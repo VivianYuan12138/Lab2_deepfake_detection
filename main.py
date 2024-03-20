@@ -20,7 +20,7 @@ def main(args: argparse.Namespace) -> None:
         config = json.loads(f_json.read())
 
     # Set device
-    # device = "cuda" if torch.cuda.is_available() else "cpu"
+    device = "cuda" if torch.cuda.is_available() else "cpu"
 
     device = "cpu"
     # Define model
