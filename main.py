@@ -21,6 +21,7 @@ def main(args: argparse.Namespace) -> None:
 
     # Set device
     device = "cuda" if torch.cuda.is_available() else "cpu"
+    print(f"Device: {device}")
 
     # Define model
     model = Model(config["model_config"]).to(device)
@@ -75,6 +76,7 @@ def produce_evaluation_file(data_loader: DataLoader, model, device: torch.device
     fname_list = []
     score_list = []
     for batch_x, utt_id in data_loader:
+        print(f"Evaluating {utt_id[0]}")
         batch_x = batch_x.to(device)
         with torch.no_grad():
             _ , batch_out = model(batch_x)
