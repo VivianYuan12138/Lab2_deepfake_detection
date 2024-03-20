@@ -22,7 +22,6 @@ def main(args: argparse.Namespace) -> None:
     # Set device
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
-    device = "cpu"
     # Define model
     model = Model(config["model_config"]).to(device)
 
